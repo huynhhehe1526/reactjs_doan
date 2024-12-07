@@ -19,7 +19,7 @@ const CreateWallet = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/create_wallet', { bank_account: name }); // Đổi API_ENDPOINT thành URL thực tế
+      const response = await axios.post('https://nodejs-doan-xy6u.onrender.com/api/create_wallet', { bank_account: name }); // Đổi API_ENDPOINT thành URL thực tế
       setSuccess(true);
       console.log('Tạo ví thành công:', response.data.wallet);
       sessionStorage.setItem('bitcoinInfo', JSON.stringify(response.data.wallet));
