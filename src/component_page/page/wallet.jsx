@@ -95,6 +95,10 @@ const WalletInterface = () => {
     }
   }, [winner]);
 
+  //check
+  useEffect(()=>{
+    dispatch(getResult());
+  }, [dispatch])
 
   useEffect(() => {
     const fetchData = async () => {
