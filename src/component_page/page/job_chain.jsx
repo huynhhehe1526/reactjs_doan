@@ -85,7 +85,7 @@ const JobList = () => {
 
   const fetchJobs = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/getListJob');
+      const response = await fetch('https://nodejs-doan-xy6u.onrender.com/api/getListJob');
       const contentType = response.headers.get("content-type");
 
       if (!contentType || !contentType.includes("application/json")) {
