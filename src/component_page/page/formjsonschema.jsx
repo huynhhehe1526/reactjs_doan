@@ -250,25 +250,31 @@ const Formjsonschema = () => {
             if (res) {
                 console.log("check res ben form schema json: ", res);
                 if (res.data) {
-                    notification.success({
-                        message: res.message,
-                        description: "Success"
-                    });
-
-                    notification.info({
-                        message: "Bạn đầu tư " + res.data.bitcoin + "$",
-                        description: "Info"
-                    });
+                    if (res.error == 0) {
+                        notification.success({
+                            message: res.message,
+                            description: "Success"
+                        });
+                        notification.info({
+                            message: "Bạn đầu tư " + res.data.bitcoin + "$",
+                            description: "Info"
+                        });
+                    } else {
+                        notification.info({
+                            message: res.message,
+                            description: "Info"
+                        });
+                    }
                 } else {
                     notification.info({
                         message: res.message,
                         description: "Info"
                     });
                 }
-                notification.error({
-                    message: res.message,
-                    description: "Error"
-                });
+                // notification.error({
+                //     message: res.message,
+                //     description: "Error"
+                // });
             }
         } catch (error) {
             notification.error({

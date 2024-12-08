@@ -30,9 +30,6 @@ import { checkWinnerPrevious, getResult } from '../../redux/result/resultSlice';
 import Header from "../layout/header";
 import ConnectWalletModal from '../page/connect';
 
-
-
-
 const WalletInterface = () => {
   const { i18n } = useTranslation();
 
@@ -193,28 +190,6 @@ const WalletInterface = () => {
 
 
   const text = <span>Thông báo <hr sx={{ width: "10px" }} /></span>;
-  // const content = (
-  //   <div style={{ height: '50px', margin: 0, padding: 0 }}>
-  //     {winner && winner.winner ?
-  //       <>
-  //         <span style={{ color: 'gray' }}>Ngày: {moment.utc(winner.winner.created_at).format("DD/MM/YYYY, HH:mm:ss")}</span>
-  //         <div style={{ display: "flex", gap: "5px", textAlign: 'justify', alignItems: 'center', justifyContent: 'flex-start' }}>
-  //           <i className="fa-solid fa-circle" style={{ color: "blue", fontSize: "5px" }}></i>
-
-  //           <div div className='content-notice'>
-  //             Chúc mừng người dùng {maskWinnerId(`${winner.winner.winnerId}`)} chiến thắng
-  //           </div>
-  //         </div>
-  //       </>
-  //       :
-  //       <div div className='content-notice'>
-  //         Hiện chưa có thông báo mới
-  //       </div>
-  //     }
-
-  //   </div >
-
-  // );
 
 
   const content = (
@@ -301,8 +276,8 @@ const WalletInterface = () => {
                   <Button color="inherit" onClick={handleRedirectTransaction}>
                     {i18n.t('wallet.transaction')}
                   </Button>
-                  <Button color="inherit">{i18n.t('wallet.exchange')}</Button>
-                  <Button color="inherit">{i18n.t('wallet.saving')}</Button>
+                  {/* <Button color="inherit">{i18n.t('wallet.exchange')}</Button>
+                  <Button color="inherit">{i18n.t('wallet.saving')}</Button> */}
                 </Box>
               </Box>
               <Box>
@@ -424,7 +399,7 @@ const WalletInterface = () => {
 
             {/* Right Section */}
             <Grid item xs={12} md={6}>
-              <Typography variant="h5" gutterBottom>{i18n.t('wallet.forYou')}</Typography>
+              {/* <Typography variant="h5" gutterBottom>{i18n.t('wallet.forYou')}</Typography>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={4}>
                   <Card sx={{ bgcolor: '#6c5ce7', color: '#ddd', height: '100%', textAlign: 'justify' }}>
@@ -450,7 +425,7 @@ const WalletInterface = () => {
                     </CardContent>
                   </Card>
                 </Grid>
-              </Grid>
+              </Grid> */}
 
               {/* Assets Section */}
               <Box sx={{ mt: 4 }}>
