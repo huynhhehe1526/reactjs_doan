@@ -38,6 +38,7 @@ const WalletInterface = () => {
   const [showtotal, setShowToTal] = useState(0);
 
   const [isWinner, setIsWinner] = useState(false);
+  const [isShowAddress, setIsShowAddress] = useState(false);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -66,6 +67,8 @@ const WalletInterface = () => {
 
   const userInfo = JSON.parse(sessionStorage.getItem('bitcoinInfo')) || {};
   const currentUserId = userInfo?._id;
+
+  const bitcoinWallet = userInfo?.bitcoin_wallet;
 
   console.log("Check userId đang đăng nhập: ", currentUserId);
 
@@ -259,7 +262,9 @@ const WalletInterface = () => {
   const handleCreateClick = () => {
     navigate('/create');  // Điều hướng đến trang Create
   };
-
+  const handleShowAdressBitcoin = () => {
+    setIsShowAddress(!isShowAddress);
+  }
 
   return (
     <div>
@@ -441,7 +446,16 @@ const WalletInterface = () => {
                         <CurrencyBitcoin sx={{ color: '#f39c12', fontSize: 32 }} />
                         <Box>
                           <Typography variant="body1">Bitcoin</Typography>
-                          <Button color="primary" sx={{ p: 0 }}>{i18n.t('button.showAddress')}</Button>
+                          {isShowAddress == true ?
+                            <Button color="primary" sx={{ p: 0 }}
+                              onClick={handleShowAdressBitcoin()}
+                            >{bitcoinWallet}</Button>
+                            :
+                            <Button color="primary" sx={{ p: 0 }}
+                              onClick={handleShowAdressBitcoin()}
+                            >{i18n.t('button.showAddress')}</Button>
+                          }
+
                         </Box>
                       </Box>
                       <Box sx={{ textAlign: 'right' }}>
