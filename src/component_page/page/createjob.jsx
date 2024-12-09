@@ -10,7 +10,8 @@ const CreateJob = () => {
     setLoading(true);
     try {
       // Fetch request to create a new job
-      const response = await fetch('https://nodejs-doan-xy6u.onrender.com/api/create_job', {
+      const response = await fetch(`$${process.env.VITE_BACKEND_URL}/api/create_job`, {
+      // const response = await fetch('https://nodejs-doan-xy6u.onrender.com/api/create_job', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
