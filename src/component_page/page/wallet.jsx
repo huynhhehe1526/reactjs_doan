@@ -617,8 +617,8 @@ const WalletInterface = () => {
       setNotificationCount(1);
       const winnerId = winner.winner.winnerId;
       // Lưu thông báo vào cookie (có thể là chuỗi hoặc số)
-      Cookies.set('isShowNoticePublish', 'true', { expires: 1, path: '/', domain: "doanweb3.netlify.app" }); // Cookie sẽ hết hạn sau 1 ngày
-      Cookies.set('winnerId', winnerId, { expires: 1, path: '/', domain: "doanweb3.netlify.app" });
+      Cookies.set('isShowNoticePublish', 'true', { expires: 1, path: '/', domain: "doanweb3.netlify.app", secure: true }); // Cookie sẽ hết hạn sau 1 ngày
+      Cookies.set('winnerId', winnerId, { expires: 1, path: '/', domain: "doanweb3.netlify.app", secure: true });
     }
   }, [winner]);
 
