@@ -612,9 +612,9 @@ const WalletInterface = () => {
       setNotificationCount(1);
     }
   }, [winner]);
-  // useEffect(() => {
-  //   dispatch(getResult());
-  // }, [dispatch])
+  useEffect(() => {
+    dispatch(getResult());
+  }, [dispatch])
 
   useEffect(() => {
     const fetchData = async () => {
