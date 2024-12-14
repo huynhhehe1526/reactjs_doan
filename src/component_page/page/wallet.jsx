@@ -615,6 +615,23 @@ const WalletInterface = () => {
   // useEffect(() => {
   //   dispatch(getResult());
   // }, [dispatch])
+  useEffect(() => {
+    const now = new Date();
+    const targetHour = 17;
+    const targetTime = new Date(now);
+    targetTime.setHours(targetHour, 0, 0, 0);
+    if (now > targetTime) {
+      targetTime.setDate(targetTime.getDate() + 1);
+    }
+
+    const timeLeft = targetTime - now;
+
+    const timeoutId = setTimeout(() => {
+      dispatch(getResult());
+    }, timeLeft);
+    return () => clearTimeout(timeoutId);
+  }, [dispatch]);
+
 
   useEffect(() => {
     const fetchData = async () => {
