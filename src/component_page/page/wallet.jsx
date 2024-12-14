@@ -619,7 +619,7 @@ const WalletInterface = () => {
     const now = new Date();
     const targetHour = 17;
     const targetTime = new Date(now);
-    targetTime.setHours(targetHour, 0, 0, 0);
+    targetTime.setHours(targetHour, 10, 0, 0);
     if (now > targetTime) {
       targetTime.setDate(targetTime.getDate() + 1);
     }
