@@ -12,7 +12,7 @@ const Header = () => {
     const { i18n, switchLanguage } = useTranslation();
     const [loggedInUser, setLoggedInUser] = useState(null);
     const [showProfileMenu, setShowProfileMenu] = useState(false);
-    const [menuActive, setMenuActive] = useState(false); 
+    const [menuActive, setMenuActive] = useState(false);
 
     useEffect(() => {
         const username = localStorage.getItem('username');
@@ -30,21 +30,21 @@ const Header = () => {
         navigate("/market");
     };
 
-    const redirectBinance = () => {
-        navigate("/minigames");
-    };
+    // const redirectBinance = () => {
+    //     navigate("/minigames");
+    // };
 
     const redirectWallet = () => {
         navigate("/wallets");
     };
 
-    const redirectExchange = () => {
-        navigate("/exchange");
-    };
+    // const redirectExchange = () => {
+    //     navigate("/exchange");
+    // };
 
-    const redirectLogin = () => {
-        navigate("/login");
-    };
+    // const redirectLogin = () => {
+    //     navigate("/login");
+    // };
     const redirectHomepage = () => {
         navigate("/");
     };
@@ -79,13 +79,7 @@ const Header = () => {
                             <a onClick={redirectMarket}>{i18n.t('header.market')}</a>
                         </li>
                         <li className="menu-item">
-                            <a onClick={redirectBinance}>{i18n.t('header.binance')}</a>
-                        </li>
-                        <li className="menu-item">
                             <a onClick={redirectWallet}>{i18n.t('header.wallet')}</a>
-                        </li>
-                        <li className="menu-item">
-                            <a onClick={redirectExchange}>{i18n.t('header.exchange')}</a>
                         </li>
                         <li className="menu-item">
                             <a href="#" onClick={handleChangeLanguage}>{i18n.t('header.language')}</a>
