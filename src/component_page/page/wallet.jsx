@@ -619,7 +619,8 @@ const WalletInterface = () => {
     const now = new Date();
     const targetHour = 17;
     const targetTime = new Date(now);
-    targetTime.setHours(targetHour, 10, 0, 0);
+    console.log("Check ngày và thơi gian thông báo hiện tại : ", now, targetTime);
+    targetTime.setHours(targetHour, 30, 0, 0);
     if (now > targetTime) {
       targetTime.setDate(targetTime.getDate() + 1);
     }
@@ -628,9 +629,14 @@ const WalletInterface = () => {
 
     const timeoutId = setTimeout(() => {
       dispatch(getResult());
+      setIsShowNoticePublish(true);
+      localStorage.setItem("isShowNoticePublish", "true");
     }, timeLeft);
     return () => clearTimeout(timeoutId);
   }, [dispatch]);
+
+
+
 
 
   useEffect(() => {
