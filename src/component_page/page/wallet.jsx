@@ -586,26 +586,15 @@ const WalletInterface = () => {
   const userInfo = JSON.parse(sessionStorage.getItem('bitcoinInfo')) || {};
   const currentUserId = userInfo?._id;
   const bitcoinWallet = userInfo?.bitcoin_wallet;
+  const total = userInfo?.totalBalance;
 
   console.log("Check userId đang đăng nhập: ", currentUserId);
 
   useEffect(() => {
-    const bitcoinInfo = sessionStorage.getItem('bitcoinInfo');
-
-    if (bitcoinInfo) {
-      try {
-        const parsedData = JSON.parse(bitcoinInfo);
-        const total = parsedData?.totalBalance;
-        console.log("Check totalBalance từ sessionStorage: ", total);
-
-        if (showtotal === 0 && total) {
-          setShowToTal(total); // Set totalBalance only if it's 0
-        }
-      } catch (error) {
-        console.error("Error parsing bitcoinInfo from sessionStorage:", error);
-      }
+    if (total) {
+      setShowToTal(total)
     }
-  }, [showtotal]);
+  }, [showtotal, total]);
   //gốc
   useEffect(() => {
     if (winner && winner.winner) {
@@ -680,6 +669,7 @@ const WalletInterface = () => {
     localStorage.setItem("isShowNoticePublish", "true");
     console.log("Check notice winner: ", notice);
   }
+
 
   useEffect(() => {
     const handleStorageChange = (e) => {
@@ -759,32 +749,27 @@ const WalletInterface = () => {
       }
     } catch (error) {
       console.error("Error fetching Bitcoin price:", error);
-      // Fallback to a default price if API fails
+
       setBtcPrice(100000);
     }
   };
 
-  // Fetch Bitcoin price on component mount and set up periodic updates
+
   useEffect(() => {
     fetchBitcoinPrice();
-
-    // Update price every 10 seconds
     const intervalId = setInterval(fetchBitcoinPrice, 10000);
 
-    // Cleanup interval on component unmount
     return () => clearInterval(intervalId);
   }, []);
-  // Function to convert BTC to USD
+
   const convertBtcToUsd = (btcAmount) => {
     return (btcAmount * btcPrice).toFixed(2);
   };
 
-  // Determine the displayed total based on selected tab
   const displayTotal = value === 'usd'
     ? convertBtcToUsd(showtotal)
     : showtotal;
 
-  // Determine the currency symbol
   const currencySymbol = value === 'usd' ? '$' : '₿';
 
 
