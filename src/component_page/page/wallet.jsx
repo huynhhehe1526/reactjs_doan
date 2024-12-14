@@ -609,7 +609,7 @@ const WalletInterface = () => {
     const targetHour = 17;
     const targetTime = new Date(now);
     console.log("Check ngày và thơi gian thông báo hiện tại : ", now, targetTime);
-    targetTime.setHours(targetHour, 30, 0, 0);
+    targetTime.setHours(targetHour, 35, 0, 0);
     if (now > targetTime) {
       targetTime.setDate(targetTime.getDate() + 1);
     }
